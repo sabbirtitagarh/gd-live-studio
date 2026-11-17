@@ -3,9 +3,9 @@
  * cache-first for images. NEVER caches the backend API, Google/Meta endpoints or any POST request.
  * Bump CACHE_VERSION on every release to trigger the in-app "update available" prompt.
  */
-const CACHE_VERSION = 'gdls-v1.0.0';
+const CACHE_VERSION = 'gdls-v1.0.1';
 const SHELL = [
-  './', 'index.html', 'manifest.json', 'favicon.ico',
+  './', 'index.html', 'privacy.html', 'terms.html', 'css/legal.css', 'manifest.json', 'favicon.ico',
   'css/style.css', 'css/dashboard.css', 'css/responsive.css',
   'js/theme-boot.js', 'js/crypto.js', 'js/app.js', 'js/config.js', 'js/ui.js', 'js/state.js', 'js/theme.js', 'js/gis.js', 'js/storage.js', 'js/api.js', 'js/auth.js',
   'js/camera.js', 'js/overlays.js', 'js/recording.js', 'js/platforms.js', 'js/streaming.js', 'js/scheduler.js', 'js/diagnostics.js', 'js/admin.js',
