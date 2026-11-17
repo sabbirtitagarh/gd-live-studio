@@ -33,7 +33,7 @@
           <option value="under13">Under 13</option>
         </select></label>
       <label class="check"><input type="checkbox" name="guardian"><span>I am 13–17 and my parent or guardian has agreed to my use of GD LIVE STUDIO and to the rules of any live-streaming platform I connect.</span></label>
-      <label class="check"><input type="checkbox" name="consent" required><span>I accept the privacy notice: GD TECH ACADEMY stores my name, email, settings and stream metadata in its Google Sheet. Recordings stay on my device unless I choose to upload them. I can export or delete my data at any time.</span></label>
+      <label class="check"><input type="checkbox" name="consent" required><span>I accept the <a href="privacy.html" target="_blank" rel="noopener">Privacy Policy</a> and <a href="terms.html" target="_blank" rel="noopener">Terms of Service</a>: GD TECH ACADEMY stores my name, email, settings and stream metadata in its Google Sheet. Recordings stay on my device unless I choose to upload them. I can export or delete my data at any time.</span></label>
       <button class="btn accent block lg" type="submit">Create account</button>
       <p class="muted small">New accounts may need approval from the GD TECH ACADEMY owner before they can sign in.</p>
     </form>
@@ -47,7 +47,7 @@
         <label class="field">Age group
           <select name="ageGroup" required><option value="">Select…</option><option value="18+">18 or older</option><option value="13-17">13 to 17 (parent/guardian consent required)</option><option value="under13">Under 13</option></select></label>
         <label class="check"><input type="checkbox" name="guardian"><span>I am 13–17 and my parent or guardian consents.</span></label>
-        <label class="check"><input type="checkbox" name="consent" required><span>I accept the privacy notice.</span></label>
+        <label class="check"><input type="checkbox" name="consent" required><span>I accept the <a href="privacy.html" target="_blank" rel="noopener">Privacy Policy</a> and <a href="terms.html" target="_blank" rel="noopener">Terms of Service</a>.</span></label>
         <button class="btn accent" type="submit">Finish creating my account</button>
       </form>
     </div>
@@ -56,6 +56,6 @@
   <div class="card mt">
     <h3>Just exploring?</h3>
     <p class="muted small">Guests can use the camera preview, device tests and local recording without an account. Scheduling, platform sync and history need an account.</p>
-    <a class="btn ghost block" href="#/camera">Continue as guest</a>
+    <a class="btn ghost block" href="#/dashboard" data-guest>Continue as guest</a>
   </div>
 </section>

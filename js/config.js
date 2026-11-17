@@ -11,10 +11,10 @@ export const CONFIG = {
   HANDLE: '@GYAANKADABBA',
 
   // Paste your deployed Apps Script Web App URL (ends in /exec). Empty = "Local mode" (no backend features).
-  API_URL: 'https://script.google.com/macros/s/AKfycbxi3aVBBKsQSdmisVwxdGYikBo25s-yY8Dfl2GIysyDtUxH5hdkUDnk_z6paF_FgcCv/exec',
+  API_URL: '',
 
   // Public OAuth client IDs (safe to publish; they are not secrets). Create them in Google Cloud / Meta for Developers.
-  GOOGLE_CLIENT_ID: '54506393700-brb3pu11cckj5ljdtkhtlumqv2038gve.apps.googleusercontent.com',   // used for Google Sign-In, YouTube Live API and optional Drive (drive.file) access
+  GOOGLE_CLIENT_ID: '',   // used for Google Sign-In, YouTube Live API and optional Drive (drive.file) access
   FACEBOOK_APP_ID: '',    // used for Facebook Login for eligible Pages
   FACEBOOK_GRAPH_VERSION: 'v21.0',
 

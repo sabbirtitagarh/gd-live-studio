@@ -86,7 +86,7 @@ function paintChips() {
 /* ---------- permanent branding (users cannot remove it from the UI) ---------- */
 function ensureBranding() {
   let f = $('#app-footer');
-  const html = `<span class="logo-tile"><img src="${CONFIG.LOGO_MARK}" alt="GD TECH ACADEMY"></span><b>Powered by GD TECH ACADEMY</b><span aria-hidden="true">·</span><a href="${CONFIG.WEBSITE}" target="_blank" rel="noopener noreferrer">gyaankadabba.blogspot.com</a>`;
+  const html = `<span class="logo-tile"><img src="${CONFIG.LOGO_MARK}" alt="GD TECH ACADEMY"></span><b>Powered by GD TECH ACADEMY</b><span aria-hidden="true">·</span><a href="${CONFIG.WEBSITE}" target="_blank" rel="noopener noreferrer">gyaankadabba.blogspot.com</a><span aria-hidden="true">·</span><a href="privacy.html" target="_blank" rel="noopener">Privacy</a><span aria-hidden="true">·</span><a href="terms.html" target="_blank" rel="noopener">Terms</a>`;
   if (!f) { f = h('footer', { id: 'app-footer', class: 'app-footer' }); document.body.append(f); }
   if (!/Powered by GD TECH ACADEMY/.test(f.textContent) || !$('a', f)) f.innerHTML = html;
   Object.assign(f.style, { display: 'flex', visibility: 'visible', opacity: '1' }); f.hidden = false;
@@ -105,20 +105,29 @@ function gate(route) {
 }
 function blocked(kind, route) {
   const msgs = {
-    login: ['Sign in required', 'This area needs an account. Guests can use the camera preview, device tests and local recording.', '<a class="btn accent" href="#/login">Sign in or create account</a> <a class="btn ghost" href="#/camera">Continue as guest</a>'],
+    login: ['Sign in required', 'This area needs an account. Guests can use the camera preview, device tests and local recording.', '<a class="btn accent" href="#/login">Sign in or create account</a> <a class="btn ghost" href="#/camera" data-guest>Continue as guest</a>'],
     forbidden: ['Not authorised', 'This area is for the GD TECH ACADEMY owner only.', '<a class="btn soft" href="#/dashboard">Back to dashboard</a>'],
     maintenance: ['Maintenance in progress', state.config.maintenanceMessage || 'GD LIVE STUDIO is temporarily unavailable.', '<a class="btn soft" href="#/about">About</a>'],
     feature: ['Feature unavailable', 'The owner has turned this feature off.', '<a class="btn soft" href="#/dashboard">Back to dashboard</a>']
   }[kind];
   view().innerHTML = `<section class="page"><div class="card center" style="padding:28px"><h1>${esc(msgs[0])}</h1><p class="muted">${esc(msgs[1])}</p><div class="row" style="justify-content:center">${msgs[2]}</div></div></section>`;
 }
+/* Login-first: a visitor with no account session must see the sign-in page first,
+   unless they explicitly chose "Continue as guest" in this browser session. */
+const GUEST_KEY = 'gdls-guest-choice';
+const guestChosen = () => { try { return sessionStorage.getItem(GUEST_KEY) === '1'; } catch { return false; } };
+const setGuest = on => { try { on ? sessionStorage.setItem(GUEST_KEY, '1') : sessionStorage.removeItem(GUEST_KEY); } catch { /* storage blocked */ } };
+const ENTRY_FREE = ['/login', '/about', '/help', '/diagnostics'];
+document.addEventListener('click', e => { if (e.target.closest && e.target.closest('[data-guest]')) setGuest(true); }, true);
 async function render() {
   const token = ++navToken; const { path } = parseHash();
   if (typeof cleanup === 'function') { try { cleanup(); } catch { /* ignore */ } } cleanup = null;
   const route = ROUTES[path] || ROUTES['/dashboard'];
   if (!ROUTES[path]) { location.replace('#/dashboard'); return; }
   buildNav(); paintStatusBars(); window.scrollTo(0, 0);
+  if (state.user) setGuest(false);
   if (path === '/login' && state.user) { location.replace('#/dashboard'); return; }
+  if (!state.user && !guestChosen() && !ENTRY_FREE.includes(path)) { location.replace('#/login'); return; }
   const g = gate(route); if (g) { blocked(g, route); return; }
   const v = view(); v.innerHTML = '<div class="empty" style="margin:30px 0">Loading…</div>';
   try {
