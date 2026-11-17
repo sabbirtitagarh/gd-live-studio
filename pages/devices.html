@@ -1,0 +1,42 @@
+<section class="page" data-page="devices">
+  <div class="page-head"><div><h1>Device Settings</h1><p class="muted">Appearance, devices, gateway and preferences. Saved on this device (and to your account when signed in).</p></div></div>
+  <div class="grid cols-2">
+    <div class="card">
+      <h2>Appearance</h2>
+      <div class="seg" id="ds-theme"><button type="button" data-v="auto">Auto</button><button type="button" data-v="light">Light</button><button type="button" data-v="dark">Dark</button></div>
+    </div>
+    <div class="card">
+      <h2>Camera &amp; microphone</h2>
+      <div class="col">
+        <label class="field">Preferred camera<select id="ds-cam"><option value="">Default</option></select></label>
+        <label class="field">Preferred microphone<select id="ds-mic"><option value="">Default</option></select></label>
+        <div class="row"><button class="btn soft sm" id="ds-perm" type="button">Ask for permission &amp; refresh list</button></div>
+        <p class="muted small">Device names appear only after permission is granted.</p>
+      </div>
+    </div>
+    <div class="card" style="grid-column:1/-1">
+      <h2>Personal streaming gateway <span class="badge" id="gw-badge">Not set</span></h2>
+      <p class="muted small">Needed for RTMP platforms and multi-platform. You can host the free open-source gateway yourself (see docs/GATEWAY_GUIDE.md). The owner may also provide a shared gateway. Without a gateway, multi-platform is shown as unavailable.</p>
+      <form id="gw-form" class="form-grid" autocomplete="off">
+        <label class="field">WHIP base URL<input type="url" name="whipBase" placeholder="https://gateway.example.com:8889"></label>
+        <label class="field">Relay API URL<input type="url" name="relayApi" placeholder="https://gateway.example.com:8787"></label>
+        <label class="field">Auth type<select name="authType"><option value="bearer">Bearer token</option><option value="basic">Basic (user "studio")</option></select></label>
+        <label class="field">Gateway token <span class="hint">Stored on this device only.</span><input type="password" name="token" autocomplete="off"></label>
+        <div class="row" style="grid-column:1/-1"><button class="btn accent" type="submit">Save</button><button class="btn soft" id="gw-test" type="button">Test gateway</button><button class="btn ghost" id="gw-clear" type="button">Remove</button></div>
+      </form>
+      <div id="gw-result" class="notice small mt" hidden></div>
+    </div>
+    <div class="card">
+      <h2>Preferences</h2>
+      <div class="col">
+        <label class="check"><input type="checkbox" id="ds-mirror"><span>Mirror front camera by default</span></label>
+        <label class="field">Default countdown<select id="ds-count"><option value="0">Off</option><option value="3">3 s</option><option value="5">5 s</option><option value="10">10 s</option></select></label>
+        <label class="field">Reminder before scheduled streams<select id="ds-remind"><option value="0">None</option><option value="5">5 minutes</option><option value="15">15 minutes</option><option value="60">1 hour</option></select></label>
+      </div>
+    </div>
+    <div class="card">
+      <h2>Mobile limitations</h2>
+      <p class="small">Camera access and continuous broadcasting can be interrupted by operating-system restrictions, browser limits, screen locking, battery-saving modes and network changes. GD LIVE STUDIO asks the browser to keep the screen awake while recording or broadcasting where supported, but <b>background streaming is not guaranteed</b>.</p>
+    </div>
+  </div>
+</section>

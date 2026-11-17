@@ -1,0 +1,57 @@
+/* ==========================================================================
+   GD LIVE STUDIO — responsive layouts (phone → tablet → desktop, portrait/landscape)
+   Mobile-first: base styles in style.css / dashboard.css target phones.
+   ========================================================================== */
+
+/* Small phones */
+@media (max-width: 380px) {
+  .app-header .brand small { display: none; }
+  .header-chips .chip span { display: none; }
+  .stat .value { font-size: 1.4rem; }
+  .rec-card { grid-template-columns: 1fr; }
+}
+
+/* Phones in landscape: shrink chrome so the preview gets the height */
+@media (max-height: 480px) and (orientation: landscape) {
+  :root { --header-h: 44px; --bottom-nav-h: 52px; --footer-h: 28px; }
+  .app-header .brand small { display: none; }
+  .stage.portrait { max-height: 62dvh; }
+  .app-main { padding-top: 10px; }
+}
+
+/* Tablet */
+@media (min-width: 700px) {
+  body { font-size: 16px; }
+  .app-main { padding-left: 22px; padding-right: 22px; }
+  .studio-layout { grid-template-columns: minmax(0, 1.6fr) minmax(280px, 1fr); align-items: start; }
+  .overlay-layout { grid-template-columns: minmax(0, 1.4fr) minmax(280px, 1fr); align-items: start; }
+  .more-grid { grid-template-columns: repeat(4, 1fr); }
+  .cal .day { min-height: 84px; }
+}
+
+/* Desktop: sidebar replaces bottom nav */
+@media (min-width: 1024px) {
+  :root { --bottom-nav-h: 0px; --sidebar-w: 256px; }
+  .bottom-nav { display: none; }
+  .app-body { grid-template-columns: var(--sidebar-w) 1fr; }
+  .sidebar {
+    display: block; position: sticky; top: calc(var(--header-h) + var(--safe-t)); align-self: start;
+    height: calc(100dvh - var(--header-h) - var(--safe-t) - var(--footer-h)); overflow-y: auto;
+    background: var(--surface); border-right: 1px solid var(--border);
+  }
+  .app-footer { left: 0; }
+  .app-main { padding-bottom: calc(var(--footer-h) + 32px); }
+  #toasts { bottom: calc(var(--footer-h) + 16px); }
+  .modal-backdrop { align-items: center; }
+}
+
+/* Large desktop */
+@media (min-width: 1400px) {
+  .page { max-width: 1320px; }
+}
+
+/* Print: keep help/guides readable */
+@media print {
+  .app-header, .sidebar, .bottom-nav, #toasts { display: none !important; }
+  .app-main { padding: 0; }
+}

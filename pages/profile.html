@@ -1,0 +1,42 @@
+<section class="page" data-page="profile">
+  <div class="page-head"><div><h1>Profile &amp; Account</h1><p class="muted">Your personal workspace details. You can personalise your profile; the GD TECH ACADEMY ownership identity cannot be changed.</p></div></div>
+  <div id="pf-guest" class="card" hidden>
+    <h2>You are using GD LIVE STUDIO as a guest</h2>
+    <p class="muted">Create a free account to schedule streams, sync platform metadata and keep stream history on your account.</p>
+    <a class="btn accent" href="#/login">Sign in or create account</a>
+  </div>
+  <div id="pf-main" hidden>
+    <div class="grid cols-2">
+      <div class="card">
+        <div class="row"><span class="avatar lg" id="pf-avatar"></span><div><h2 id="pf-name" style="margin:0"></h2><div class="muted small" id="pf-email"></div><span class="badge" id="pf-status"></span> <span class="badge" id="pf-role"></span></div></div>
+        <form id="pf-form" class="col mt">
+          <label class="field">Display name<input type="text" name="displayName" maxlength="60" required></label>
+          <label class="field">Profile picture URL <span class="hint">Optional https:// image link.</span><input type="url" name="avatarUrl" maxlength="300"></label>
+          <label class="field">Channel name (default stream branding)<input type="text" name="channelName" maxlength="60"></label>
+          <label class="field">Default stream title<input type="text" name="defaultTitle" maxlength="100"></label>
+          <button class="btn accent" type="submit">Save profile</button>
+        </form>
+      </div>
+      <div class="col">
+        <div class="card" id="pf-pass-card">
+          <h3>Change password</h3>
+          <form id="pf-pass" class="col"><label class="field">Current password<input type="password" name="current" autocomplete="current-password" required></label><label class="field">New password (10+ characters)<input type="password" name="next" autocomplete="new-password" minlength="10" required></label><button class="btn soft" type="submit">Change password</button></form>
+        </div>
+        <div class="card">
+          <h3>Privacy &amp; consent</h3>
+          <p class="small muted">Consent recorded: <span id="pf-consent"></span></p>
+          <div class="row"><button class="btn soft sm" id="pf-export" type="button"><span data-icon="download"></span> Export my account data</button></div>
+        </div>
+        <div class="card">
+          <h3>Session</h3>
+          <div class="row"><button class="btn ghost" id="pf-logout" type="button"><span data-icon="logout"></span> Log out</button></div>
+        </div>
+        <div class="card">
+          <h3>Delete account</h3>
+          <p class="small muted">Permanently removes your account record, preferences, schedules and stream metadata from the backend and clears local data on this device. This cannot be undone.</p>
+          <button class="btn danger" id="pf-delete" type="button"><span data-icon="trash"></span> Delete my account</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

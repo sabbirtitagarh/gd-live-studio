@@ -1,0 +1,24 @@
+<section class="page" data-page="storage">
+  <div class="page-head"><div><h1>Storage Manager</h1><p class="muted">You decide where your data lives. Nothing is uploaded silently.</p></div></div>
+  <div class="notice warn mb"><strong>Browser storage is not a permanent backup</strong>Clearing browser data, private browsing, low storage or uninstalling the app may remove locally stored information. Download or export anything you cannot lose.</div>
+  <div class="grid cols-2">
+    <div class="card">
+      <h2>Option 1 · Device storage</h2>
+      <p class="small muted">Preferences, presets, overlays and recordings stay in this browser (IndexedDB).</p>
+      <div class="kv" id="st-kv"></div>
+      <div class="meter mt" aria-hidden="true"><i id="st-bar" style="width:0"></i></div>
+      <p class="small muted" id="st-est"></p>
+      <div class="row mt">
+        <button class="btn soft sm" id="st-persist" type="button">Ask browser to keep my data</button>
+        <button class="btn soft sm" id="st-export" type="button"><span data-icon="download"></span> Export my data</button>
+        <button class="btn danger sm" id="st-delete" type="button"><span data-icon="trash"></span> Delete all local data</button>
+      </div>
+    </div>
+    <div class="card">
+      <h2>Option 2 · My Google Drive <span class="badge" id="st-drive-badge">Disconnected</span></h2>
+      <p class="small muted">Optional. Uses the narrow <span class="mono">drive.file</span> permission: this app can only see files it creates itself, never your other Drive files. Each upload asks for your confirmation first.</p>
+      <div class="row"><button class="btn accent sm" id="st-drive-connect" type="button">Connect Drive</button><button class="btn ghost sm" id="st-drive-disc" type="button">Disconnect</button></div>
+      <div id="st-drive-msg" class="notice small mt" hidden></div>
+    </div>
+  </div>
+</section>

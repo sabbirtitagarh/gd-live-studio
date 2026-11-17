@@ -1,0 +1,61 @@
+<section class="page auth-wrap" data-page="login">
+  <div class="auth-hero">
+    <span class="logo-tile" style="width:112px;height:112px;border-radius:26px"><img src="assets/logo/gd-tech-academy-logo.png" alt="GD TECH ACADEMY logo" width="112" height="112"></span>
+    <h1>GD LIVE STUDIO</h1>
+    <p class="muted">Create. Connect. Go Live.</p>
+  </div>
+
+  <div class="card">
+    <div class="seg mb" role="group" aria-label="Account">
+      <button type="button" data-tab="login" aria-pressed="true">Sign in</button>
+      <button type="button" data-tab="register" aria-pressed="false">Create account</button>
+    </div>
+
+    <div id="login-msg" class="notice" hidden role="alert"></div>
+
+    <form id="form-login" class="col" autocomplete="on">
+      <label class="field">Email<input type="email" name="email" autocomplete="email" required></label>
+      <label class="field">Password<input type="password" name="password" autocomplete="current-password" required minlength="1"></label>
+      <button class="btn block lg" type="submit">Sign in</button>
+    </form>
+
+    <form id="form-register" class="col" autocomplete="on" hidden>
+      <label class="field">Display name<input type="text" name="name" autocomplete="name" maxlength="60" required></label>
+      <label class="field">Email<input type="email" name="email" autocomplete="email" required></label>
+      <label class="field">Password <span class="hint">At least 10 characters. Passwords are salted and hashed on the server — never stored as plain text.</span>
+        <input type="password" name="password" autocomplete="new-password" minlength="10" required></label>
+      <label class="field">Repeat password<input type="password" name="password2" autocomplete="new-password" minlength="10" required></label>
+      <label class="field">Age group <span class="hint">Used only for eligibility. We do not collect your date of birth.</span>
+        <select name="ageGroup" required>
+          <option value="">Select…</option>
+          <option value="18+">18 or older</option>
+          <option value="13-17">13 to 17 (parent/guardian consent required)</option>
+          <option value="under13">Under 13</option>
+        </select></label>
+      <label class="check"><input type="checkbox" name="guardian"><span>I am 13–17 and my parent or guardian has agreed to my use of GD LIVE STUDIO and to the rules of any live-streaming platform I connect.</span></label>
+      <label class="check"><input type="checkbox" name="consent" required><span>I accept the privacy notice: GD TECH ACADEMY stores my name, email, settings and stream metadata in its Google Sheet. Recordings stay on my device unless I choose to upload them. I can export or delete my data at any time.</span></label>
+      <button class="btn accent block lg" type="submit">Create account</button>
+      <p class="muted small">New accounts may need approval from the GD TECH ACADEMY owner before they can sign in.</p>
+    </form>
+
+    <div class="divider">or</div>
+    <div id="g-btn" class="center" style="min-height:44px"></div>
+
+    <div id="consent-panel" class="notice warn mt" hidden>
+      <strong>One more step</strong>
+      <form class="col mt">
+        <label class="field">Age group
+          <select name="ageGroup" required><option value="">Select…</option><option value="18+">18 or older</option><option value="13-17">13 to 17 (parent/guardian consent required)</option><option value="under13">Under 13</option></select></label>
+        <label class="check"><input type="checkbox" name="guardian"><span>I am 13–17 and my parent or guardian consents.</span></label>
+        <label class="check"><input type="checkbox" name="consent" required><span>I accept the privacy notice.</span></label>
+        <button class="btn accent" type="submit">Finish creating my account</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="card mt">
+    <h3>Just exploring?</h3>
+    <p class="muted small">Guests can use the camera preview, device tests and local recording without an account. Scheduling, platform sync and history need an account.</p>
+    <a class="btn ghost block" href="#/camera">Continue as guest</a>
+  </div>
+</section>

@@ -1,0 +1,34 @@
+<section class="page" data-page="help">
+  <div class="page-head"><div><h1>Help &amp; Tutorials</h1><p class="muted">Guides for getting set up, going live and fixing common problems.</p></div></div>
+  <div id="hp-announce"></div>
+  <div class="card mb">
+    <h2>Getting started</h2>
+    <ol>
+      <li><b>Camera Studio</b> → Start Camera, choose Horizontal or Vertical, pick a quality.</li>
+      <li><b>Recording Studio</b> → record locally and download. No account needed.</li>
+      <li><b>Platform Connections</b> → connect YouTube or Facebook, or add a custom RTMP/WHIP destination.</li>
+      <li><b>Start Streaming</b> → pick destinations, pass the readiness checklist, press Go Live.</li>
+    </ol>
+  </div>
+  <div class="card mb">
+    <h2>Important limitations</h2>
+    <ul>
+      <li>GitHub Pages and Google Apps Script cannot carry live video. Live broadcasting uses WebRTC/WHIP to a media gateway (optional, self-hosted, open source) or directly to a WHIP endpoint.</li>
+      <li>Multi-platform streaming is available only when a relay gateway is configured and healthy.</li>
+      <li>Instagram has no general public Live API. Only accounts with Instagram's official live-production access can stream with an RTMP key.</li>
+      <li>Facebook needs a Meta app with approved permissions; apps in Development mode work only for people with a role on the app.</li>
+      <li>Mobile operating systems may pause the camera or network when the screen locks or the app is in the background. Background streaming is not guaranteed.</li>
+      <li>Recording formats depend on your browser. MP4 is not assumed.</li>
+    </ul>
+  </div>
+  <div id="hp-faq"></div>
+  <div class="card mt">
+    <h2>Troubleshooting</h2>
+    <details class="instr"><summary>Camera permission blocked</summary><div class="body">Tap the lock icon in the address bar → Permissions → set Camera and Microphone to Allow, then reload. On Android also check Settings → Apps → your browser → Permissions.</div></details>
+    <details class="instr"><summary>Camera is busy</summary><div class="body">Another app or tab is using the camera. Close video-call apps and other camera tabs, then press Start Camera again.</div></details>
+    <details class="instr"><summary>Only one camera is listed on my phone</summary><div class="body">Some browsers show device names only after permission is granted. Start the camera once, then open Device Settings and refresh.</div></details>
+    <details class="instr"><summary>“Gateway unreachable”</summary><div class="body">Check the URL uses https://, the certificate is valid, and CORS allows this website's origin. Run Diagnostics for details.</div></details>
+    <details class="instr"><summary>Broadcast keeps reconnecting</summary><div class="body">Use the Low bandwidth preset, move closer to your router, and avoid switching between Wi-Fi and mobile data while live.</div></details>
+    <p class="mt"><a href="#/diagnostics">Open the Diagnostics Centre</a></p>
+  </div>
+</section>

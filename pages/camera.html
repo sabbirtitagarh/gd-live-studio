@@ -1,0 +1,89 @@
+<section class="page" data-page="camera">
+  <div class="page-head">
+    <div>
+      <h1>Camera Studio</h1>
+      <p class="muted">Set up your camera and microphone. Your video never leaves this device from this page.</p>
+    </div>
+    <div class="perm-row">
+      <span class="perm" id="perm-cam"><i></i>Camera: <b>unknown</b></span>
+      <span class="perm" id="perm-mic"><i></i>Microphone: <b>unknown</b></span>
+    </div>
+  </div>
+
+  <div id="cam-error" class="notice err mb" role="alert" hidden></div>
+  <div id="cam-interrupt" class="notice warn mb" role="status" hidden><strong>Camera paused by the system</strong>The browser or operating system has paused the camera (screen locked, app in background, or battery saver). Return to this tab to resume.</div>
+
+  <div class="studio-layout">
+    <div class="col">
+      <div class="stage landscape" id="stage">
+        <video id="preview" autoplay muted playsinline></video>
+        <div class="placeholder" id="stage-ph"><p><b>Camera is off</b></p><p class="small">Press <b>Start Camera</b>. Your browser will ask for permission.</p></div>
+        <div class="overlay-tl"><span class="chip" id="chip-res" hidden><i></i><span></span></span></div>
+        <div class="countdown" id="countdown" hidden></div>
+        <div class="brand-tag"><span class="logo-tile" style="width:18px;height:18px;border-radius:5px"><img src="assets/logo/gd-mark.png" alt=""></span> Powered by GD TECH ACADEMY</div>
+      </div>
+      <div class="stage-controls">
+        <button class="btn accent" id="b-start" type="button"><span data-icon="camera"></span><span class="lbl">Start Camera</span></button>
+        <button class="btn soft icon" id="b-flip" type="button" title="Switch front/rear camera" aria-label="Switch front or rear camera"><span data-icon="flip"></span></button>
+        <button class="btn soft icon" id="b-mic" type="button" title="Microphone on/off" aria-label="Microphone on or off"><span data-icon="mic"></span></button>
+        <button class="btn soft icon" id="b-cam" type="button" title="Camera on/off" aria-label="Camera on or off"><span data-icon="camera"></span></button>
+        <button class="btn soft icon" id="b-fs" type="button" title="Full-screen preview" aria-label="Full-screen preview"><span data-icon="maximize"></span></button>
+      </div>
+      <div>
+        <div class="row between small muted"><span>Microphone level</span><span id="mic-state"></span></div>
+        <div class="meter" aria-hidden="true"><i id="meter"></i></div>
+      </div>
+      <div class="notice small" id="cam-actual">Actual camera output appears here after the camera starts.</div>
+    </div>
+
+    <div class="col">
+      <div class="card">
+        <h3>Orientation</h3>
+        <div class="seg" id="seg-orient" role="group" aria-label="Orientation">
+          <button type="button" data-v="landscape">Horizontal 16:9</button>
+          <button type="button" data-v="portrait">Vertical 9:16</button>
+        </div>
+        <p class="muted small mt">The preview frame matches your choice. The video is cropped to fit (never stretched). Hold your phone the same way for the best quality.</p>
+      </div>
+
+      <div class="card">
+        <h3>Video quality</h3>
+        <div class="seg" id="seg-quality" role="group" aria-label="Video quality">
+          <button type="button" data-v="low">Low bandwidth</button>
+          <button type="button" data-v="standard">Standard</button>
+          <button type="button" data-v="hd">HD</button>
+          <button type="button" data-v="custom">Custom</button>
+        </div>
+        <div class="form-grid mt" id="custom-q" hidden>
+          <label class="field">Width<input type="number" id="cq-w" min="320" max="3840" step="2"></label>
+          <label class="field">Height<input type="number" id="cq-h" min="240" max="2160" step="2"></label>
+          <label class="field">Frame rate<input type="number" id="cq-fps" min="10" max="60"></label>
+          <label class="field">Bitrate (kbps)<input type="number" id="cq-br" min="300" max="12000" step="100"></label>
+        </div>
+        <p class="muted small mt" id="q-note">These are requests. Your device may deliver less; the actual values are shown under the preview.</p>
+      </div>
+
+      <div class="card">
+        <h3>Devices</h3>
+        <div class="col">
+          <label class="field">Camera<select id="sel-cam"><option value="">Default camera</option></select></label>
+          <label class="field">Microphone<select id="sel-mic"><option value="">Default microphone</option></select></label>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>More controls</h3>
+        <div class="col">
+          <label class="check"><input type="checkbox" id="chk-mirror"><span>Mirror front camera</span></label>
+          <label class="field">Frame fit
+            <select id="sel-fit"><option value="cover">Fill the frame (crop edges)</option><option value="contain">Fit inside (black bars)</option></select></label>
+          <label class="field" id="zoom-wrap" hidden>Zoom <input type="range" id="rng-zoom"></label>
+          <p class="muted small" id="zoom-na">Zoom is not offered by this camera/browser.</p>
+          <label class="check" id="mon-wrap"><input type="checkbox" id="chk-monitor"><span>Audio monitoring (hear yourself). Use headphones to avoid echo.</span></label>
+          <label class="field">Countdown before recording/broadcast
+            <select id="sel-count"><option value="0">Off</option><option value="3">3 seconds</option><option value="5">5 seconds</option><option value="10">10 seconds</option></select></label>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

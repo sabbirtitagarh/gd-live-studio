@@ -1,0 +1,62 @@
+<section class="page" data-page="record">
+  <div class="page-head">
+    <div>
+      <h1>Recording Studio</h1>
+      <p class="muted">Record locally on this device. No social account or internet connection is needed.</p>
+    </div>
+    <span id="rec-badge"></span>
+  </div>
+  <div id="rec-error" class="notice err mb" role="alert" hidden></div>
+  <div id="rec-unsupported" class="notice err mb" hidden><strong>Recording is not supported</strong>This browser has no MediaRecorder. Use a current Chrome, Edge, Firefox or Safari.</div>
+
+  <div class="studio-layout">
+    <div class="col">
+      <div class="stage landscape" id="stage">
+        <canvas id="rec-canvas"></canvas>
+        <div class="placeholder" id="stage-ph"><p><b>Camera is off</b></p><p class="small">Start the camera, then press Record.</p></div>
+        <div class="overlay-tl"><span class="chip rec" id="rec-chip" hidden><i></i><span>REC</span></span></div>
+        <div class="countdown" id="countdown" hidden></div>
+        <div class="brand-tag"><span class="logo-tile" style="width:18px;height:18px;border-radius:5px"><img src="assets/logo/gd-mark.png" alt=""></span> Powered by GD TECH ACADEMY</div>
+      </div>
+      <div class="row between">
+        <span class="timer" id="rec-timer" aria-live="off">00:00</span>
+        <span class="muted small" id="rec-size"></span>
+      </div>
+      <div class="stage-controls">
+        <button class="btn accent" id="r-cam" type="button"><span data-icon="camera"></span><span class="lbl">Start Camera</span></button>
+        <button class="btn rec" id="r-start" type="button" disabled><span data-icon="circle"></span> Record</button>
+        <button class="btn soft" id="r-pause" type="button" disabled><span data-icon="pause"></span> Pause</button>
+        <button class="btn soft" id="r-resume" type="button" hidden><span data-icon="play"></span> Resume</button>
+        <button class="btn ghost" id="r-stop" type="button" disabled><span data-icon="stop"></span> Stop &amp; save</button>
+        <button class="btn soft icon" id="r-flip" type="button" aria-label="Switch front or rear camera"><span data-icon="flip"></span></button>
+        <button class="btn soft icon" id="r-mic" type="button" aria-label="Microphone on or off"><span data-icon="mic"></span></button>
+        <button class="btn soft icon" id="r-fs" type="button" aria-label="Full-screen preview"><span data-icon="maximize"></span></button>
+      </div>
+      <div class="meter" aria-hidden="true"><i id="meter"></i></div>
+    </div>
+
+    <div class="col">
+      <div class="card">
+        <h3>Recording settings</h3>
+        <div class="col">
+          <label class="field">Title<input type="text" id="r-title" maxlength="80" placeholder="My recording"></label>
+          <div><div class="small muted mb">Orientation</div>
+            <div class="seg" id="seg-orient"><button type="button" data-v="landscape">Horizontal 16:9</button><button type="button" data-v="portrait">Vertical 9:16</button></div></div>
+          <label class="field">Quality<select id="r-quality"><option value="low">Low bandwidth</option><option value="standard">Standard</option><option value="hd">HD</option><option value="custom">Custom (set in Camera Studio)</option></select></label>
+          <label class="check"><input type="checkbox" id="r-overlays"><span>Burn branding overlays into the video</span></label>
+          <label class="field">Countdown<select id="r-count"><option value="0">Off</option><option value="3">3 s</option><option value="5">5 s</option><option value="10">10 s</option></select></label>
+          <label class="field">Format <span class="hint" id="r-mime-hint"></span><select id="r-mime"></select></label>
+        </div>
+      </div>
+      <div class="notice small">
+        <strong>About formats</strong>
+        Each browser records in the formats it supports (commonly WebM; some Safari/Chrome versions also offer MP4). The list above shows only what your browser can actually record — MP4 is never assumed.
+      </div>
+      <div class="card" id="last-card" hidden>
+        <h3>Last recording</h3>
+        <video id="last-video" controls playsinline style="width:100%;border-radius:12px;background:#000"></video>
+        <div class="row mt"><button class="btn accent sm" id="last-dl" type="button"><span data-icon="download"></span> Download</button><button class="btn soft sm" id="last-drive" type="button"><span data-icon="upload"></span> Save to my Google Drive</button><a class="btn ghost sm" href="#/recordings">All recordings</a></div>
+      </div>
+    </div>
+  </div>
+</section>

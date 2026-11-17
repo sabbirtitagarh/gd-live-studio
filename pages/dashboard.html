@@ -1,0 +1,46 @@
+<section class="page" data-page="dashboard">
+  <div class="page-head">
+    <div>
+      <h1 id="dash-hello">Dashboard</h1>
+      <p class="muted">Your streaming workspace. Everything shown here is real data from this device and the backend — nothing is simulated.</p>
+    </div>
+    <div class="row">
+      <a class="btn accent" href="#/go-live"><span data-icon="radio"></span> Start Streaming</a>
+      <a class="btn soft" href="#/record"><span data-icon="circle"></span> Record</a>
+    </div>
+  </div>
+
+  <div id="dash-announce"></div>
+
+  <div class="grid cols-3">
+    <div class="card stat"><span class="label">Connected platforms</span><span class="value" id="d-plat">0</span><span class="sub" id="d-plat-sub">None connected</span></div>
+    <div class="card stat"><span class="label">Active recording</span><span class="value" id="d-rec">Idle</span><span class="sub" id="d-rec-sub">No recording in progress</span></div>
+    <div class="card stat"><span class="label">Available device storage</span><span class="value" id="d-store">—</span><span class="sub" id="d-store-sub">Reported by your browser, when supported</span></div>
+    <div class="card stat"><span class="label">Saved streaming presets</span><span class="value" id="d-presets">0</span><span class="sub"><a href="#/go-live">Manage presets</a></span></div>
+    <div class="card stat"><span class="label">Broadcast status</span><span class="value" id="d-live">Idle</span><span class="sub" id="d-live-sub">Not broadcasting</span></div>
+    <div class="card stat"><span class="label">Camera</span><span class="value" id="d-cam">Off</span><span class="sub" id="d-cam-sub">—</span></div>
+  </div>
+
+  <div class="grid cols-2 mt">
+    <div class="card">
+      <div class="row between"><h2>Recent broadcasts</h2><a class="small" href="#/history">View all</a></div>
+      <ul class="list" id="d-hist"></ul>
+    </div>
+    <div class="card">
+      <div class="row between"><h2>Recent activity</h2></div>
+      <ul class="list" id="d-activity"></ul>
+    </div>
+  </div>
+
+  <div class="card mt">
+    <h2>Quick start</h2>
+    <div class="grid cols-3">
+      <a class="btn soft block" href="#/camera"><span data-icon="camera"></span> Camera Studio</a>
+      <a class="btn soft block" href="#/platforms"><span data-icon="plug"></span> Connect platforms</a>
+      <a class="btn soft block" href="#/overlays"><span data-icon="palette"></span> Branding &amp; overlays</a>
+      <a class="btn soft block" href="#/schedule"><span data-icon="calendar"></span> Schedule a stream</a>
+      <a class="btn soft block" href="#/diagnostics"><span data-icon="activity"></span> Run diagnostics</a>
+      <a class="btn soft block" href="#/help"><span data-icon="help"></span> Help &amp; tutorials</a>
+    </div>
+  </div>
+</section>

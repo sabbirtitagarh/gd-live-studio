@@ -1,0 +1,62 @@
+<section class="page" data-page="overlays">
+  <div class="page-head">
+    <div>
+      <h1>Branding &amp; Overlays</h1>
+      <p class="muted">Design your on-screen graphics with a live preview. The official GD TECH ACADEMY identity stays in the app footer and cannot be removed.</p>
+    </div>
+    <button class="btn soft sm" id="ov-reset" type="button">Reset</button>
+  </div>
+
+  <div class="overlay-layout">
+    <div class="col">
+      <div class="stage landscape" id="stage"><canvas id="ov-canvas"></canvas></div>
+      <div class="row">
+        <div class="seg" id="seg-orient"><button type="button" data-v="landscape">Horizontal</button><button type="button" data-v="portrait">Vertical</button></div>
+        <div class="seg" id="seg-scene"><button type="button" data-v="live">Live</button><button type="button" data-v="starting">Starting soon</button><button type="button" data-v="ending">Ending</button></div>
+        <button class="btn accent sm" id="ov-cam" type="button"><span data-icon="camera"></span><span class="lbl">Use camera in preview</span></button>
+      </div>
+      <p class="muted small">Without the camera running, the preview shows a neutral background so you can still design.</p>
+    </div>
+
+    <div class="col">
+      <div class="card"><h3>Templates</h3><div class="template-grid" id="ov-templates"></div></div>
+      <div class="card">
+        <h3>Content</h3>
+        <div class="col">
+          <label class="field">Channel name<input type="text" id="ov-channel" maxlength="50"></label>
+          <label class="field">Stream title<input type="text" id="ov-title" maxlength="80"></label>
+          <label class="field">Website<input type="text" id="ov-website" maxlength="80"></label>
+          <label class="field">Social handle<input type="text" id="ov-handle" maxlength="40"></label>
+          <label class="field">Watermark text<input type="text" id="ov-watermark" maxlength="40"></label>
+          <label class="field">Free text<input type="text" id="ov-free" maxlength="80"></label>
+          <label class="field">Free text position<select id="ov-free-pos"><option value="top">Top</option><option value="center">Centre</option><option value="bottom">Bottom</option></select></label>
+          <label class="check"><input type="checkbox" id="ov-dt"><span>Show date and time</span></label>
+          <label class="check"><input type="checkbox" id="ov-logo"><span>Show GD TECH ACADEMY logo on overlay</span></label>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Lower third</h3>
+        <div class="col"><label class="check"><input type="checkbox" id="ov-lt-on"><span>Show lower third</span></label>
+          <label class="field">Name<input type="text" id="ov-lt-name" maxlength="50"></label><label class="field">Role / topic<input type="text" id="ov-lt-role" maxlength="60"></label></div>
+      </div>
+      <div class="card">
+        <h3>Educational information banner</h3>
+        <div class="col"><label class="check"><input type="checkbox" id="ov-ban-on"><span>Show banner</span></label><label class="field">Banner text<input type="text" id="ov-ban" maxlength="100" placeholder="e.g. Today: HTML basics · Ask questions in chat"></label></div>
+      </div>
+      <div class="card">
+        <h3>Starting soon / ending screens</h3>
+        <div class="col"><label class="field">Starting text<input type="text" id="ov-start" maxlength="60"></label><label class="field">Ending text<input type="text" id="ov-end" maxlength="60"></label></div>
+      </div>
+      <div class="card">
+        <h3>Images</h3>
+        <div class="col">
+          <label class="field">Custom image<input type="file" id="ov-img" accept="image/png,image/jpeg,image/webp,image/gif"></label>
+          <label class="field">Secondary logo (optional)<input type="file" id="ov-logo2" accept="image/png,image/jpeg,image/webp,image/gif"></label>
+          <label class="field">Image position<select id="ov-img-pos"><option value="tr">Top right</option><option value="tl">Top left</option><option value="br">Bottom right</option><option value="bl">Bottom left</option></select></label>
+          <div class="row"><button class="btn ghost sm" id="ov-img-clear" type="button">Remove images</button></div>
+          <p class="muted small">Images are resized and stored on this device only.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

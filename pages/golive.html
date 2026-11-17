@@ -1,0 +1,68 @@
+<section class="page" data-page="go-live">
+  <div class="page-head">
+    <div>
+      <h1>Start Streaming</h1>
+      <p class="muted">Choose where to broadcast, check readiness, and go live. Status is only shown as “Live” when the platform confirms it.</p>
+    </div>
+    <span id="gl-badge"></span>
+  </div>
+
+  <div id="gl-error" class="notice err mb" role="alert" hidden></div>
+
+  <div class="grid cols-2">
+    <div class="col">
+      <div class="card">
+        <h2>1 · Stream details</h2>
+        <div class="col">
+          <label class="field">Stream title<input type="text" id="gl-title" maxlength="100" placeholder="e.g. Live class: Web basics"></label>
+          <label class="field">Description<textarea id="gl-desc" maxlength="2000" placeholder="What is this stream about?"></textarea></label>
+          <label class="field">Privacy <span class="hint">Applied where the platform supports it (YouTube: public/unlisted/private; Facebook: public/only me).</span>
+            <select id="gl-privacy"><option value="unlisted">Unlisted</option><option value="public">Public</option><option value="private">Private</option></select></label>
+          <label class="check"><input type="checkbox" id="gl-kids"><span>This content is made for kids (YouTube requires you to declare this honestly).</span></label>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>2 · Mode</h2>
+        <div class="seg" id="gl-mode" role="group" aria-label="Broadcast mode">
+          <button type="button" data-v="single" aria-pressed="true">Single platform</button>
+          <button type="button" data-v="multi" aria-pressed="false">Multi-platform</button>
+        </div>
+        <div id="gl-mode-note" class="notice small mt"></div>
+      </div>
+
+      <div class="card">
+        <h2>3 · Destinations</h2>
+        <div id="gl-dests" class="col"></div>
+        <div class="row mt"><a class="btn soft sm" href="#/platforms"><span data-icon="plug"></span> Manage connections</a></div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card">
+        <h2>4 · Format</h2>
+        <div class="seg" id="seg-orient"><button type="button" data-v="landscape">Horizontal 16:9</button><button type="button" data-v="portrait">Vertical 9:16</button></div>
+        <div class="seg mt" id="seg-quality"><button type="button" data-v="low">Low bandwidth</button><button type="button" data-v="standard">Standard</button><button type="button" data-v="hd">HD</button><button type="button" data-v="custom">Custom</button></div>
+        <label class="field mt">Countdown<select id="gl-count"><option value="0">Off</option><option value="3">3 s</option><option value="5">5 s</option><option value="10">10 s</option></select></label>
+      </div>
+
+      <div class="card">
+        <h2>Presets</h2>
+        <div class="row"><select id="gl-preset" class="grow"><option value="">Select a preset…</option></select>
+          <button class="btn soft sm" id="gl-preset-load" type="button">Load</button><button class="btn soft sm" id="gl-preset-save" type="button">Save current</button><button class="btn ghost sm" id="gl-preset-del" type="button">Delete</button></div>
+        <p class="muted small mt">Presets are stored on this device (never stream keys).</p>
+      </div>
+
+      <div class="card">
+        <h2>5 · Readiness</h2>
+        <ul class="checklist" id="gl-checks"><li class="warn"><span class="mark">…</span><span>Checking…</span></li></ul>
+        <div class="row mt"><button class="btn soft sm" id="gl-recheck" type="button"><span data-icon="refresh"></span> Re-check</button><a class="btn ghost sm" href="#/camera">Camera Studio</a></div>
+      </div>
+
+      <div class="card">
+        <button class="btn accent lg block" id="gl-go" type="button"><span data-icon="radio"></span> Go Live</button>
+        <p class="muted small mt">Mobile browsers may pause the camera or network if the screen locks, the app goes to the background, battery saver is on, or the connection changes. Keep this screen open and plugged in. Background broadcasting is <b>not</b> guaranteed.</p>
+      </div>
+    </div>
+  </div>
+</section>

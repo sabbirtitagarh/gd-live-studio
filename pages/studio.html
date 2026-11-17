@@ -1,0 +1,40 @@
+<section class="page" data-page="studio">
+  <div class="page-head">
+    <div>
+      <h1>Broadcast Studio</h1>
+      <p class="muted">Your live control room: program preview, per-destination status, connection health and stop controls.</p>
+    </div>
+    <span id="bs-badge"></span>
+  </div>
+  <div id="bs-error" class="notice err mb" role="alert" hidden></div>
+  <div id="bs-notice" class="notice warn mb" role="status" hidden></div>
+
+  <div class="studio-layout">
+    <div class="col">
+      <div class="stage landscape" id="stage">
+        <canvas id="bs-canvas"></canvas>
+        <div class="overlay-tl"><span class="chip live" id="bs-chip" hidden><i></i><span>ON AIR</span></span></div>
+        <div class="countdown" id="countdown" hidden></div>
+        <div class="brand-tag"><span class="logo-tile" style="width:18px;height:18px;border-radius:5px"><img src="assets/logo/gd-mark.png" alt=""></span> Powered by GD TECH ACADEMY</div>
+      </div>
+      <div class="row between"><span class="timer" id="bs-timer">00:00</span><span class="small muted" id="bs-stats"></span></div>
+      <div class="stage-controls">
+        <button class="btn danger lg" id="bs-stop" type="button" disabled><span data-icon="stop"></span> Stop broadcast</button>
+        <button class="btn soft icon" id="bs-flip" type="button" aria-label="Switch camera"><span data-icon="flip"></span></button>
+        <button class="btn soft icon" id="bs-mic" type="button" aria-label="Microphone on or off"><span data-icon="mic"></span></button>
+        <button class="btn soft icon" id="bs-fs" type="button" aria-label="Full-screen"><span data-icon="maximize"></span></button>
+      </div>
+      <div class="meter" aria-hidden="true"><i id="meter"></i></div>
+      <div class="card">
+        <h3>Scenes</h3>
+        <div class="seg" id="bs-scene"><button type="button" data-v="starting">Starting soon</button><button type="button" data-v="live" aria-pressed="true">Live camera</button><button type="button" data-v="ending">Ending</button></div>
+        <div class="row mt"><label class="check"><input type="checkbox" id="bs-lt"><span>Show lower third</span></label></div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card"><h3>Destinations</h3><div id="bs-dests" class="col"><div class="empty">Not broadcasting.</div></div></div>
+      <div class="card"><h3>Connection health</h3><div class="kv" id="bs-health"><span>Status</span><b>—</b></div></div>
+      <div class="notice small">“Live” appears only after YouTube or Facebook confirm it through their API. Destinations that cannot report a state (custom RTMP, Instagram manual, WHIP) show <b>“Sending (not verified)”</b>.</div>
+    </div>
+  </div>
+</section>

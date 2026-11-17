@@ -1,0 +1,19 @@
+<section class="page" data-page="schedule">
+  <div class="page-head">
+    <div>
+      <h1>Stream Scheduler</h1>
+      <p class="muted">Plan your streams. An event is never marked <b>Live</b> until the connected platform confirms it.</p>
+    </div>
+    <div class="row">
+      <div class="seg" id="sc-view"><button type="button" data-v="list" aria-pressed="true">List</button><button type="button" data-v="calendar" aria-pressed="false">Calendar</button></div>
+      <button class="btn accent" id="sc-new" type="button"><span data-icon="plus"></span> New</button>
+    </div>
+  </div>
+  <div id="sc-note" class="notice small mb" hidden></div>
+  <div id="sc-list"></div>
+  <div id="sc-cal" hidden>
+    <div class="row between mb"><button class="btn soft sm" id="cal-prev" type="button">‹</button><b id="cal-title"></b><button class="btn soft sm" id="cal-next" type="button">›</button></div>
+    <div class="cal" id="cal-grid"></div>
+    <div id="cal-day" class="mt"></div>
+  </div>
+</section>

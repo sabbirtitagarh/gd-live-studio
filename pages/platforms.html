@@ -1,0 +1,24 @@
+<section class="page" data-page="platforms">
+  <div class="page-head">
+    <div>
+      <h1>Platform Connections</h1>
+      <p class="muted">A platform shows <b>Connected</b> only after Google or Meta really authorised this session. Permissions are never assumed.</p>
+    </div>
+  </div>
+
+  <div id="pl-gateway" class="card mb"></div>
+  <div id="pl-cards" class="grid cols-2"></div>
+
+  <div class="card mt">
+    <h2>Add a custom destination</h2>
+    <form id="pl-form" class="form-grid" autocomplete="off">
+      <label class="field">Type<select name="platform"><option value="rtmp">Custom RTMP / RTMPS</option><option value="instagram">Instagram Live Producer (manual RTMP)</option><option value="whip">WebRTC / WHIP endpoint</option></select></label>
+      <label class="field">Name<input type="text" name="label" maxlength="60" placeholder="e.g. Twitch"></label>
+      <label class="field" style="grid-column:1/-1">Server URL<input type="url" name="url" placeholder="rtmps://… or https://… (WHIP)" required></label>
+      <label class="field" style="grid-column:1/-1">Stream key / token <span class="hint">Optional. Never published or logged. Sent only to your gateway when you go live.</span><input type="password" name="key" autocomplete="off"></label>
+      <label class="check" style="grid-column:1/-1"><input type="checkbox" name="remember"><span>Remember the key on this device (stored in this browser only). Leave unchecked to keep it in memory for this session.</span></label>
+      <div style="grid-column:1/-1" class="row"><button class="btn accent" type="submit"><span data-icon="plus"></span> Add destination</button></div>
+    </form>
+    <div id="pl-manual" class="mt"></div>
+  </div>
+</section>
