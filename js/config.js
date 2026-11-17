@@ -8,7 +8,7 @@ export const CONFIG = {
   TAGLINE: 'Create. Connect. Go Live.',
   VERSION: '1.0.0',
   WEBSITE: 'https://gyaankadabba.blogspot.com',
-  HANDLE: '@GYAANKADABBA',
+  HANDLE: '@GDTACADEMY',
 
   // Paste your deployed Apps Script Web App URL (ends in /exec). Empty = "Local mode" (no backend features).
   API_URL: 'https://script.google.com/macros/s/AKfycbxi3aVBBKsQSdmisVwxdGYikBo25s-yY8Dfl2GIysyDtUxH5hdkUDnk_z6paF_FgcCv/exec',
